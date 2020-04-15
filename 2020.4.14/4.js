@@ -74,7 +74,7 @@ function Game (a, b) {
             b.reward(table.remove(checkResultB))
         }
     }
-    console.log('a:',a.card, a.start,'b:', b.card, b.start, 'table:', table.card)
+    console.log('a:',a.card.slice(a.start),'b:', b.card.slice(b.start), 'table:', table.card)
 }
 
 Game(a, b)
