@@ -1,3 +1,4 @@
+let isFinish = false
 function Player (card) {
     this.card = card
     this.start = 0
@@ -6,11 +7,16 @@ function Player (card) {
 Player.prototype.pay = function () {
     let value = this.card[this.start]
         this.start++
-        return value
+        if (!value) {
+            isFinish = true
+        } else {
+            return value
+        }
 }
 
 Player.prototype.reward = function (arr) {
     this.card = this.card.concat(arr)
+    // console.log('reward', this.card, arr, this.card)
 }
 
 let table = {
@@ -27,10 +33,14 @@ let table = {
         return arr
     },
     checkReward: function () {
+        if (this.card.length < 2) {
+            return -1
+        }
         let target = this.card[this.card.length - 1]
         let targetIndex = -1
-        for(let i = 0; i < this.card.length; i++) {
-            console.log(i, target)
+        console.log(this.card, target)
+        for(let i = 0; i < this.card.length - 1; i++) {
+            // console.log(i, target, this.card)
             if (this.card[i] === target) {
                 targetIndex = i
                 break
@@ -50,20 +60,21 @@ function test () {
 // test()
 
 function Game (a, b) {
-    while(a.card.length > 0 && b.card.length > 0) {
+    while(!isFinish) {
         table.add(a.pay())
         let checkResultA = table.checkReward()
+        // console.log(checkResultA, 11111111111111)
         if(checkResultA!= -1) {
             a.reward(table.remove(checkResultA))
         }
-        
+        // console.log(a, b, '---------')
         table.add(b.pay())
         let checkResultB = table.checkReward()
         if(checkResultB!= -1) {
             b.reward(table.remove(checkResultB))
         }
     }
-    console.log('a:',a.card,'b:', b.card, 'table:', table.card)
+    console.log('a:',a.card, a.start,'b:', b.card, b.start, 'table:', table.card)
 }
 
 Game(a, b)
