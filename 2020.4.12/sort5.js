@@ -2,9 +2,9 @@ const devide = function (array, start, end) {
     if (start >= end) {
         return array
     }
-    const baseIndex = Math.floor((start + end) / 2),
-          i = start,
-          j = end;
+    const baseIndex = Math.floor((start + end) / 2);
+    let i = start,
+        j = end;
 
     while (i <= j) {
         while (array[i] < array[baseIndex]) {
@@ -41,3 +41,5 @@ const sort = function (array, start, end) {
 
     return array;
 }
+
+sort([1,44,5,6,7,8,9], 0, 6)

@@ -6,12 +6,14 @@ function Player (card) {
 
 Player.prototype.pay = function () {
     let value = this.card[this.start]
+    console.log(this.card, this.start, 1111111)
+    if (!value) {
+        isFinish = true
+        return false
+    } else {
         this.start++
-        if (!value) {
-            isFinish = true
-        } else {
-            return value
-        }
+        return value
+    }
 }
 
 Player.prototype.reward = function (arr) {
@@ -61,14 +63,16 @@ function test () {
 
 function Game (a, b) {
     while(!isFinish) {
-        table.add(a.pay())
+        let cardA = a.pay()
+        cardA ? table.add(cardA) : null
         let checkResultA = table.checkReward()
         // console.log(checkResultA, 11111111111111)
         if(checkResultA!= -1) {
             a.reward(table.remove(checkResultA))
         }
         // console.log(a, b, '---------')
-        table.add(b.pay())
+        let cardB = b.pay()
+        cardB ? table.add(cardB) : null
         let checkResultB = table.checkReward()
         if(checkResultB!= -1) {
             b.reward(table.remove(checkResultB))

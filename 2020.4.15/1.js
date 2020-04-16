@@ -22,7 +22,6 @@ function LinkArr () {
 
     this.renderArr = function () {
         let arr = [this.startValue]
-        console.log(this.arr, 'position', this.souceArr)
         let prev = 0
         for (let i = 0; i < this.arr.length; i++) {
             arr.push(this.souceArr[this.arr[prev]])
