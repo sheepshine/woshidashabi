@@ -1,0 +1,58 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="checkbox" id="1"></input>1
+        <input type="checkbox" id="2"></input>2
+        <input type="checkbox" id="3"></input>3
+        <input type="checkbox" id="4"></input>4
+        <input type="checkbox" id="5"></input>5
+        <input type="checkbox" id="6"></input>6
+        <input type="checkbox" id="7"></input>7
+        <input type="checkbox" id="8"></input>8
+        <input type="checkbox" id="9"></input>9
+        <input type="checkbox" id="10"></input>10
+        <input type="checkbox" id="11"></input>11
+        <input type="checkbox" id="12"></input>12
+        <input type="checkbox" id="13"></input>13
+        <input type="checkbox" id="14"></input>14
+    </body>
+    <script>
+        const start = function (id) {
+            console.log('开始同步文件，id为：' + id)
+        }
+
+        var checkbox = document.getElementsByTagName( 'input' ); 
+            for ( var i = 0, c; c = checkbox[ i++ ]; ){ 
+                c.onclick = function(){ 
+                    if ( this.checked === true ){ 
+                        proxyCache( this.id ); 
+                    } 
+                } 
+            };
+
+        proxyCache = (function () {
+            this.cache = []
+            this.timer = null
+            return function (id) {
+                this.cache.push(id)
+                if (this.timer) {
+                    return 
+                }
+                this.timer = setTimeout(() => {
+                    if (this.cache.length === 0) {
+                        console.log('no item in queue')
+                    }
+                    this.cache.forEach(item => {
+                        start(item)
+                        this.timer = null
+                    });
+
+                    this.cache = []
+
+                }, 2000)
+            }
+        })() 
+    </script>
+</html>

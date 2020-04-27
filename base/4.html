@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        var myImage = (function () {
+            var imgNode= document.createElement('img')
+            document.body.appendChild(imgNode)
+            return {
+                setSrc: function(src) {
+                    imgNode.src= src
+                }
+            }
+        })()
+
+        var proxyImage = (function() {
+            var img = new Image
+            img.onload = function () {
+                console.log(this, 1111)
+                myImage.setSrc(this.src)
+            }
+            return {
+                setSrc: function (src) {
+                    myImage.setSrc('https://sqimg.qq.com/qq_product_operations/im/2015/plats1.png')
+                    img.src = src
+                }
+            }
+        })()
+
+        proxyImage.setSrc('https://im.qq.com/assets/images/logo@2x.png')
+    </script>
+</html>
