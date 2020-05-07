@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script src='./1.js'></script>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        const iframe1 = iframeFactory.create()
+        iframe1.src='http://www.tencent.com'
+
+        const iframe2 = iframeFactory.create()
+        iframe2.src='http://www.qq.com'
+
+        setTimeout(() => {
+            const iframe3 = iframeFactory.create()
+            iframe3.src='http://www.weixin.com'
+        }, 6000)
+    </script>
+</html>
