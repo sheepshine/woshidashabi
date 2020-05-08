@@ -33,9 +33,8 @@ Chain.prototype.setNext = function (successor) {
 
 Chain.prototype.passRequest = function () {
     let ret = this.fn.apply(this, arguments)
-    console.log(ret, 11111, this.successor)
     if (ret === 'next') {
-        return this.successor && this.successor.passRequest.apply(this, arguments)
+        return this.successor && this.successor.passRequest.apply(this.successor, arguments)
     }
 
     return ret
@@ -48,12 +47,13 @@ const chainOrderNormal = new Chain(orderNormal)
 chainOrder500.setNext(chainOrder200)
 chainOrder200.setNext(chainOrderNormal)
 
-chainOrder500.passRequest(2, true, 500)
+// chainOrder500.passRequest(2, true, 500)
 
 Function.prototype.after = function (fn) {
     let self = this
     return function () {
         let result = self.apply(this, arguments)
+        console.log(result, 111111)
         if (result === 'next') {
             return fn.apply(this, arguments)
         }
@@ -61,4 +61,6 @@ Function.prototype.after = function (fn) {
     }
 }
 
-// const order = order500.after( order200 ).after( orderNormal )
+const order = order500.after( order200 ).after( orderNormal )
+
+order(2, true, 500)
