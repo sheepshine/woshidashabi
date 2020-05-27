@@ -4,7 +4,6 @@ Function.prototype.before = function (beforeFn) {
         if (beforeFn.apply(this, arguments) === false) {
             return
         } else {
-            
             return _self.apply(this, arguments)
         }
     }

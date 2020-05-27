@@ -48,20 +48,6 @@ var playerDirector = (function () {
         var teamColor = player.teamColor, // 玩家的队伍颜色
             teamPlayers = players[teamColor] || []; // 该队伍所有成员
         for (var i = teamPlayers.length - 1; i >= 0; i--) { // 遍历删除
-            图灵社区会员 轩辕 专享 尊重版权
-            14.2 中介者模式的例子—— 泡泡堂游戏 197
-            1
-            2
-            3
-            4
-            5
-            13
-            6
-            7
-            8
-            9
-            10
-            11
             if (teamPlayers[i] === player) {
                 teamPlayers.splice(i, 1);
             }
