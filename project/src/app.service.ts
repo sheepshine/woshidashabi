@@ -1,4 +1,5 @@
 import { Injectable, HttpException } from '@nestjs/common';
+import { User } from "./user.dto";
 
 @Injectable()
 export class AppService {
@@ -7,6 +8,7 @@ export class AppService {
     { id: 2, name: "Alice Caeiro" },
     { id: 3, name: "Who Knows" },
     { id: 4, name: "嘿嘿嘿" },
+    { id: 5, name: "hahahahaha" },
   ]
   getAllUser() {
     return Promise.resolve(this.users)
@@ -18,4 +20,8 @@ export class AppService {
     }
     return Promise.resolve(user)
   }
+  addUser(user: User) {
+    this.users.push(user)
+    return Promise.resolve()
+  } 
 }
