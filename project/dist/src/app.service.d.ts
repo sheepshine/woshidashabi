@@ -1,3 +1,4 @@
+import { User } from "./user.dto";
 export declare class AppService {
     private users;
     getAllUser(): Promise<{
@@ -8,5 +9,5 @@ export declare class AppService {
         id: number;
         name: string;
     }>;
-    addUser(user: any): Promise<void>;
+    addUser(user: User): Promise<void>;
 }
