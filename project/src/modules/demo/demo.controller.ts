@@ -11,6 +11,7 @@ import {
   UseFilters,
   HttpException,
   HttpStatus,
+  ParseIntPipe
 } from "@nestjs/common";
 
 import { DemoService } from "./demo.service";
@@ -24,7 +25,8 @@ export class DemoController {
 
   // 查询
   @Get()
-  fetch(@Query() { id }, @Headers("token") token): string {
+  fetch(@Query("id", new ParseIntPipe()) id, @Headers("token") token): string {
+    console.log(typeof id)
     if (!id) {
       throw new HttpException(
         {
