@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div onClick="debounce(test)()">1111111</div>
+	<script type="text/javascript">
+		let timeout = null
+		function debounce (fn) {
+			console.log(11111111)
+			return () => {
+				let _this = this
+				if (timeout) {
+					clearTimeout(timeout)
+				}
+
+				timeout = setTimeout(() => {
+					fn.apply(_this, arguments)
+				}, 1000)
+			}
+		}
+
+		function test() {
+			console.log("防抖了哦")
+		}
+		// let haha = debounce(test)
+	</script>
+</body>
+</html>
