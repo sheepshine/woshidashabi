@@ -1,0 +1,47 @@
+Arguments: 
+  /usr/local/Cellar/node/13.12.0/bin/node /usr/local/bin/yarn add fs
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/lib/node_modules:/usr/local/mysql/bin:/usr/local/mysql/support-files:/usr/local/lib/node_modules:/usr/local/mysql/bin:/usr/local/mysql/support-files
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  13.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/sheepshine/Desktop/learning/woshidashabi/base/2020.11.23-webpack/package.json: Unexpected token } in JSON at position 274
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "fm-wealth-fund",
+    "version": "1.0.0",
+    "description": "webpack-learning",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "ISC",
+    "dependencies": {
+      
+    },
+    "devDependencies": {
+      
+    },
+   
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

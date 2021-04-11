@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<div id="wrap">
+			<div id="test2"></div>
+			<div>
+				<div id="test1"></div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	let oDiv1 = document.querySelector("#test1")
+	let oDiv2 = document.querySelector("#test2")
+	let divArr = {}
+	function commonParentNode(oNode1, oNode2) {
+
+    	getParent(oNode1, "node1")
+    	getParent(oNode2, "node2")
+    	console.log(divArr, 6666666)
+    
+    	function getParent(oNode, name) {
+    		if (!divArr[name]) {
+    			divArr[name] = []
+    		}
+    		if (oNode.parentElement) {
+    			divArr[name].push(oNode.parentElement.getAttribute("id"))
+    			getParent(oNode.parentElement, name)
+    		}
+    	}
+	}
+
+	commonParentNode(oDiv1, oDiv2)
+</script>
+</body>
+</html>

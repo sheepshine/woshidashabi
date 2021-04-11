@@ -1,0 +1,16 @@
+{
+  "name": "webpack-learning",
+  "version": "1.0.0",
+  "description": "webpack-learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/parser": "^7.12.7",
+    "@babel/traverse": "^7.12.7",
+    "fs": "^0.0.1-security"
+  }
+}

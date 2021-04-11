@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<select id="host_iplist_id"></select>
+	<script type="text/javascript">
+	var ip_str = '185.174.100.53 167.88.177.156 23.234.254.94';
+var iplist_id = document.getElementById("host_iplist_id");
+addSelElement( ip_str, iplist_id);
+function addSelElement(str, target) {
+ const arr = str.split(" ");
+ for (let i = 0; i < arr.length; i++) {
+  const option = document.createElement("option");
+    option.value = arr[i];  
+    option.innerHTML = arr[i];  
+    target.appendChild(option);  
+ }
+
+}
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul id="test"></ul>
+<script type="text/javascript">
+	let oUl = document.querySelector("#test")
+	let d = document.createDocumentFragment()
+	for (let i = 0; i < 5; i++) {
+		let oLi = document.createElement("li")
+		oLi.setAttribute("data-index", i)
+		d.append(oLi)
+	}
+	oUl.append(d)
+	console.log(oUl)
+
+	oUl.addEventListener("click", (e) => {
+		console.log(e.target.getAttribute("data-index"))
+	})
+</script>
+</body>
+</html>
